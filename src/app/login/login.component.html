@@ -1,0 +1,18 @@
+<div class="login-form">
+    <form>
+        <div class="avatar">
+            <img src="../../assets/avatar.png" alt="Avatar">
+        </div>
+        <h2 class="text-center">Member Login</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="User Name" [formControl]="loginForm.controls['username']">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" [formControl]="loginForm.controls['password']">
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary btn-lg btn-block" (click)="login()">Sign in</button>
+        </div>
+    </form>
+    <p class="text-center small">Don't have an account? <a style="color:#e45456;" class="anchorTag" routerLink="/signup">Sign up here !</a></p>
+</div>

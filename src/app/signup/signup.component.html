@@ -1,0 +1,24 @@
+<div class="login-form">
+    <form [formGroup]="signUpForm">
+        <div class="avatar">
+            <img src="../../assets/avatar.png" alt="Avatar">
+        </div>
+        <h2 class="text-center">Member Sign Up</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="User Name" [formControl]="signUpForm.controls['username']" </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="address" placeholder="Address" [formControl]="signUpForm.controls['address']">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email" [formControl]="signUpForm.controls['email']">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" [formControl]="signUpForm.controls['password']">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-lg btn-block" (click)="submit()">Register</button>
+            </div>
+
+    </form>
+    <p class="text-center small ">Already have an account? <a style="color:#e45456;" class="anchorTag" routerLink="/">Login here !</a></p>
+    </div>

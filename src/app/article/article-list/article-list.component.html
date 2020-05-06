@@ -1,0 +1,95 @@
+<button class="btn btn-danger pull-right" (click)="logout()">
+  <i class="fa fa-sign-out" aria-hidden="true"></i>
+</button>
+<button class="btn btn-success pull-right" (click)="openModal(template)">
+  Article <i class="fa fa-plus" aria-hidden="true"></i>
+</button>
+
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">
+            {{ !isEdit ? "Add Article" : "Update Article" }}
+        </h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="email">Article Name:</label>
+            <input type="text" [formControl]="createArticleForm.controls.title" class="form-control" [ngClass]="{
+          error:
+            createArticleForm.controls.title.errors &&
+            (createArticleForm.controls.title.dirty ||
+              createArticleForm.controls.title.touched)
+        }" id="name" name="artName" />
+            <div>
+                <small *ngIf="
+            (createArticleForm.controls.title.hasError('required') &&
+              createArticleForm.controls.title.touched) ||
+            createArticleForm.controls.title.invalid
+          " class="text-danger ">
+          This field is required
+        </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="body" placeholder="Description" [formControl]="createArticleForm.controls['body']">
+        </div>
+        <div *ngIf="isEdit" class="form-group">
+            <label for="email">Article Id:</label>
+            <input type="text" readonly [formControl]="createArticleForm.controls.id" class="form-control" id="artId" name="artName" />
+        </div>
+        <div *ngIf="isEdit" class="form-group">
+            <label for="email">Author:</label>
+            <input type="text" readonly [formControl]="createArticleForm.controls.author" class="form-control" id="author" name="artName" />
+        </div>
+        <button *ngIf="!isEdit" type="button" class="btn btn-success" (click)="addArticle($event)">
+      Submit
+    </button>
+        <button type="button" *ngIf="isEdit" class="btn btn-success" (click)="updateArticle($event)">
+      Update
+    </button>
+    </div>
+</ng-template>
+<div class="row">
+    <h1 class="header">
+        List of Articles
+    </h1>
+    <table *ngIf="articleList && articleList.length > 0" class="table table-fixed">
+        <thead>
+            <tr>
+                <th>Article Name</th>
+                <th>Article Id</th>
+                <th>Description</th>
+                <th>Author</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let art of articleList">
+                <td>{{ art.title }}</td>
+                <td>{{ art.id }}</td>
+                <td>{{ art.body }}</td>
+                <td>{{ art.author }}</td>
+                <td>
+                    <i class="fa fa-pencil-square-o edit-btn" (click)="setModel(template, art)" aria-hidden="true"></i
+          ><i
+            class="fa fa-trash del-btn"
+            (click)="deleteArticle(art)"
+            aria-hidden="true"
+          ></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="articleList && articleList.length == 0" class="row center">
+    <p>No data Found</p>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-12">
+        <pagination [totalItems]="totalUser" [(ngModel)]="page" [itemsPerPage]="5" (pageChanged)="pageChanged($event)"></pagination>
+    </div>
+</div>

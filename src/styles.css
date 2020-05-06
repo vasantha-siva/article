@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+
+.row {
+    margin-top: 20px;
+}
+
+.btn-success,
+.btn-danger {
+    margin: 10px;
+    box-shadow: 0px;
+    border-radius: 0px;
+}
+
+.pull-right {
+    float: left;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.del-btn {
+    color: red;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    color: green;
+    margin: 8px;
+    cursor: pointer;
+}
+
+table thead th {
+    background-color: #fdf8eb;
+    color: #888484;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.modal-header {
+    background-color: rgb(252, 204, 192);
+    border-radius: 0px;
+    border: none;
+    color: rgb(216, 111, 84);
+}
+
+.forgot-modal-header {
+    background-color: rgb(252, 204, 192);
+    border-radius: 0px;
+    border: none;
+    color: rgb(216, 111, 84);
+}
+
+.modal-body {
+    background: #f7e6e6;
+}
+
+.center {
+    width: 300px;
+    margin: auto;
+}
+
+.error {
+    border-color: red;
+}
+
+.center-div {
+    width: 500px;
+    margin: auto;
+}
+
+.alert-success {
+    background-color: rgb(217, 250, 217);
+    color: green;
+}
+
+.alert-error {
+    background-color: #fce2da;
+    color: #f16552;
+}
+
+.alert-info {
+    background-color: #daf8fc;
+    color: #5cbbd8;
+}
+
+.alert-del {
+    background-color: rgba(255, 198, 177, 0.605);
+    color: #cc6b25;
+}
